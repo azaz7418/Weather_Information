@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useWeatherLogic } from "./WeatherFunction";
-// import { useAppSelector } from "../../redux/store";
 
 const WeatherForm: React.FC<{ city?: string }> = ({ city: initialCity }) => {
   const [isCelsius, setIsCelsius] = useState(true);

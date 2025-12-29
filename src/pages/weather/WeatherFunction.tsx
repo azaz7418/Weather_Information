@@ -56,7 +56,7 @@ export const useWeatherLogic = (initialCity?: string) => {
       const conditionText = data.current.condition.text.toLowerCase();
 
       if (conditionText.includes("heavy freezing drizzle")) {
-        path = "/image/drizzle.jpg"; // Using drizzle.jpg as fallback
+        path = "/image/drizzle.jpg"; 
       } else if (conditionText.includes("freezing drizzle")) {
         path = "/image/drizzle.jpg";
       } else if (conditionText.includes("light freezing rain")) {
@@ -78,7 +78,7 @@ export const useWeatherLogic = (initialCity?: string) => {
       } else if (conditionText.includes("patchy sleet")) {
         path = "/image/patchy-sleet.jpg";
       } else if (conditionText.includes("light sleet")) {
-        path = "/image/drizzle.jpg"; // Fallback
+        path = "/image/drizzle.jpg"; 
       } else if (conditionText.includes("patchy rain")) {
         path = "/image/patchy-rain.jpg";
       } else if (conditionText.includes("light rain")) {

@@ -18,6 +18,8 @@ const WeatherForm: React.FC<{ city?: string }> = ({ city: initialCity }) => {
       refetch();
       navigate(`/${inputValue}`);
       setInputValue("");
+      console.log(data);
+      
     }
   };
 

@@ -2,7 +2,7 @@ import moment from "moment-timezone";
 import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { countryToTimeZone } from "../../ConstantData";
-import {  setTimeZone, setLocation, setImage } from "../../redux/features/imagePath";
+import { setTimeZone, setLocation, setImage } from "../../redux/features/imagePath";
 import { useAppDispatch } from "../../redux/store";
 import { getWeatherInfo } from "../utilities";
 
@@ -25,7 +25,7 @@ export const useWeatherLogic = (initialCity?: string) => {
     enabled: !!city,
   });
   if (isError) {
-    <h2>error happen</h2>
+    <h2>error happen</h2>;
   }
   // Extracted variables before using them
   const name = data?.location?.name;
@@ -55,56 +55,56 @@ export const useWeatherLogic = (initialCity?: string) => {
 
       const conditionText = data.current.condition.text.toLowerCase();
 
-      if (conditionText.includes("partly cloudy")) {
-        path = "/image/partlycloudy.jpg";
-      } else if (conditionText.includes("light rain")) {
-        path = "/image/light-rain.jpg";
-      } else if (conditionText.includes("sunny")) {
-        path = "/image/sunny.jpg";
-      } else if (conditionText.includes("cloudy")) {
-        path = "/image/cloudy.jpg";
-      } else if (conditionText.includes("overcast")) {
-        path = "/image/overcast.jpg";
-      } else if (conditionText.includes("snow")) {
-        path = "/image/light-snow.jpg";
-      } else if (conditionText.includes("thunder")) {
-        path = "/image/thunderstorm.jpg";
-      } else if (conditionText.includes("rain")) {
-        path = "/image/heavy-rain.jpg";
-      } else if (conditionText.includes("mist")) {
-        path = "/image/mist.jpg";
-      } else if (conditionText.includes("fog")) {
-        path = "/image/fog.jpg";
-      } else if (conditionText.includes("drizzle")) {
-        path = "/image/drizzle.jpg";
-      } else if (conditionText.includes("clear")) {
-        path = "/image/clear.jpg";
-      } else if (conditionText.includes("patchy rain")) {
-        path = "/image/patchy-rain.jpg";
-      } else if (conditionText.includes("patchy snow")) {
-        path = "/image/patchy-snow.jpg";
-      } else if (conditionText.includes("patchy sleet")) {
-        path = "/image/patchy-sleet.jpg";
-      } else if (conditionText.includes("blizzard")) {
-        path = "/image/blizzard.jpg";
+      if (conditionText.includes("heavy freezing drizzle")) {
+        path = "/image/drizzle.jpg"; // Using drizzle.jpg as fallback
       } else if (conditionText.includes("freezing drizzle")) {
-        path = "/image/freezing-drizzle.jpg";
-      } else if (conditionText.includes("heavy freezing drizzle")) {
-        path = "/image/heavy-freezing-drizzle.jpg";
-      } else if (conditionText.includes("light drizzle")) {
-        path = "/image/light-drizzle.jpg";
+        path = "/image/drizzle.jpg";
       } else if (conditionText.includes("light freezing rain")) {
         path = "/image/light-freezing-rain.jpg";
-      } else if (conditionText.includes("light sleet")) {
-        path = "/image/light-sleet.jpg";
-      } else if (conditionText.includes("light snow")) {
-        path = "/image/light-snow.jpg";
-      } else if (conditionText.includes("moderate snow")) {
-        path = "/image/moderate-snow.jpg";
       } else if (conditionText.includes("heavy snow")) {
-        path = "/image/heavy-snow.jpg";
+        path = "/image/snow.jpg";
+      } else if (conditionText.includes("moderate snow")) {
+        path = "/image/snow.jpg";
+      } else if (conditionText.includes("light snow")) {
+        path = "/image/snow.jpg";
+      } else if (conditionText.includes("patchy snow")) {
+        path = "/image/patchy-snow.jpg";
+      } else if (conditionText.includes("snow")) {
+        path = "/image/snow.jpg";
+      } else if (conditionText.includes("light drizzle")) {
+        path = "/image/drizzle.jpg";
+      } else if (conditionText.includes("drizzle")) {
+        path = "/image/drizzle.jpg";
+      } else if (conditionText.includes("patchy sleet")) {
+        path = "/image/patchy-sleet.jpg";
+      } else if (conditionText.includes("light sleet")) {
+        path = "/image/drizzle.jpg"; // Fallback
+      } else if (conditionText.includes("patchy rain")) {
+        path = "/image/patchy-rain.jpg";
+      } else if (conditionText.includes("light rain")) {
+        path = "/image/light-rain.jpg";
+      } else if (conditionText.includes("rain")) {
+        path = "/image/rain.jpg";
+      } else if (conditionText.includes("thunder")) {
+        path = "/image/thunderstorm.jpg";
+      } else if (conditionText.includes("blizzard")) {
+        path = "/image/snow.jpg"; // Fallback
+      } else if (conditionText.includes("fog")) {
+        path = "/image/fog.jpg";
+      } else if (conditionText.includes("mist")) {
+        path = "/image/mist.jpg";
+      } else if (conditionText.includes("overcast")) {
+        path = "/image/overcast.jpg";
+      } else if (conditionText.includes("cloudy")) {
+        path = "/image/cloudy.jpg";
+      } else if (conditionText.includes("partly cloudy")) {
+        path = "/image/partlycloudy.jpg";
+      } else if (conditionText.includes("sunny")) {
+        path = "/image/sunny.jpg";
+      } else if (conditionText.includes("clear")) {
+        path = "/image/clear.jpg";
       } else {
-        path = "/image/weather-video.jpg";
+        path = "/image/weather-image.jpg";
       }
       dispatch(setImage({ path }));
       dispatch(setLocation({ name, country }));
